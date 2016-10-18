@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="shiplive" transaction-type="RESOURCE_LOCAL">
+      <jta-data-source>java:/shiplive</jta-data-source>
+    <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
+    <non-jta-data-source>java:shiplive</non-jta-data-source>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://127.0.0.1:5432/shiplive"/>
+      <property name="javax.persistence.jdbc.password" value="dbuser1"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="dbuser1"/>
+    </properties>
+  </persistence-unit>
+</persistence>

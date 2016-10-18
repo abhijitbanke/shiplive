@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="ShipLive"/>
+  <table-filter match-name="scr_user_master"/>
+  <table-filter match-name="opr_branch_master"/>
+  <table-filter match-name="scr_menu_master"/>
+  <table-filter match-name="scr_button_master"/>
+  <table-filter match-name="scr_menu_button_profile_details"/>
+  <table-filter match-name="scr_mac_master"/>
+  <table-filter match-name="scr_user_profile_master"/>
+  <table-filter match-name="scr_profile_menu_details"/>
+  <table-filter match-name="scr_sms_hdr"/>
+  <table-filter match-name="scr_sms_schedule_master"/>
+  <table-filter match-name="scr_menu_button_details"/>
+  <table-filter match-name="opr_port_master"/>
+  <table-filter match-name="opr_vessel_master"/>
+  <table-filter match-name="opr_cargo_details"/>
+  <table-filter match-name="opr_entry_master"/>
+</hibernate-reverse-engineering>
