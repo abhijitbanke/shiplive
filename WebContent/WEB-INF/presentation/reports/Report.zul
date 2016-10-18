@@ -1,0 +1,120 @@
+<?page id="DYNA_REP" title=" New ZUL Title" cacheable="false"
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    <style>
+
+        .reportnameboldtext{ font-family:Arial, Helvetica, sans-serif; font-size:19px; color:#0d2b83; font-weight:bold;}
+    </style>
+    <div height="100%" width="100%" align="center" style="margin:auto;" >
+        <window  id="winSingleReport"   apply="com.manikssys.in.reports.windows.ReportComposer" >
+      
+
+            <vbox align="center" >
+                <hbox >
+                    <grid width="400px" style="background:none;border:0px;">
+                        <rows style="background:none;border:0px;">
+                            <row style="background:none;border:0px;">
+                                <hbox style="float:right;">
+                                    <label value="${c:l('app.report.fromdt')}" style="float:right;"/>
+                                    <datebox id="dbFrom"  format="dd-MM-yyyy" />
+                                </hbox>
+                                <separator width="5px" />
+                                <hbox>
+                                    <label value="${c:l('app.report.todt')}" style="float:right;"/>
+                                    <datebox id="dbTo"  format="dd-MM-yyyy" />
+                                </hbox>
+                            </row>
+                        </rows>
+                    </grid>
+                </hbox>
+                <hbox>
+                    <label id="reportNameLabel" style="font-family:Arial, Helvetica, sans-serif; font-size:19px; color:#0d2b83; font-weight:bold;"/>
+                    <groupbox id="gbReportType" mold="3d" style="width:399px">
+                        <caption  image="/images/ArrowsUpDown-16x16.png" label="${c:l('app.report.groupheading.type')}"/>
+                        <hbox >
+                            <radiogroup id="rGpRepType">
+                                <grid >
+                                    <rows style="background:none;border:0px;">
+                                        <row style="background:none;">
+                                            <radio id="rdDryCargo" label="${c:l('app.report.type.heading.drycargo')}" value="${c:l('app.report.title.drycargo')}" checked="true"/>
+                                            <radio id="rdLiquidCargo" label="${c:l('app.report.type.heading.liquidcargo')}" value="${c:l('app.report.title.liquidcargo')}" />
+                                        </row>
+                                        <row style="background:none;">
+                                            <radio id="rdVpEastDry" label="${c:l('app.report.type.heading.vpeastdry')}" value="${c:l('app.report.title.vpeastdry')}" />
+                                            <radio  id="rdVpWestDry" label="${c:l('app.report.type.heading.vpwestdry')}" value="${c:l('app.report.title.vpwestdry')}" />
+                                        </row>
+                                        <row style="background:none;">
+                                            <radio id="rdVpEastLiquid" label="${c:l('app.report.type.heading.vpeastliquid')}" value="${c:l('app.report.title.vpeastliquid')}" />
+                                            <radio id="rdVpWestLiquid" label="${c:l('app.report.type.heading.vpwestliquid')}" value="${c:l('app.report.title.vpwestliquid')}" />
+                                        </row>
+                                    </rows>
+                                </grid>
+                            </radiogroup>
+                        </hbox>
+                    </groupbox>
+                </hbox>
+                <hbox>
+                    <div>
+                        <radiogroup id="rGpRepState">
+                            <grid width="400px">
+                                <columns >
+                                    <column width="50%" align="left" />
+                                    <column width="50%" align="left" />
+                                </columns>
+                                <rows style="background:none;border:0px;">
+                                    <row style="background:none;">
+                                        <radio id="rdReportPdf" label="${c:l('app.report.state.pdf')}    " value="PDF" checked="true" />
+                                        <radio id="rdReportExcel" label="${c:l('app.report.state.excel')}" value="Excel" />
+                                    </row>
+                                </rows>
+                            </grid>
+                        </radiogroup>
+                        <radiogroup id="rGpRepVersion">
+                            <grid width="400px">
+                                <columns >
+                                    <column width="50%" align="left" />
+                                    <column width="50%" align="left" />
+                                </columns>
+                                <rows style="background:none;border:0px;">
+                                    <row style="background:none;">
+                                        <radio id="rdReportNew" label="${c:l('app.report.state.new')}" value="New" checked="true"/>
+                                        <radio id="rdReportOld" label="${c:l('app.report.state.old')}" value="Old" />
+                                    </row>
+                                </rows>
+                            </grid>
+                        </radiogroup>
+                    </div>
+                </hbox>
+                <hbox>
+                </hbox>
+                <hbox>
+                    <groupbox id="gbReportDispComp" mold="3d" open="false" >
+                        <caption image="/images/ArrowsUpDown-16x16.png"  label="${c:l('app.report.groupheading.dispcomp')}"/>
+                        <listbox id="lBoxDispComp" fixedLayout="true" multiple="true" checkmark="true" width="200px">
+                            <listhead>
+                                <listheader label="${c:l('app.report.dispcomp.listheading')}"/>
+                            </listhead>
+                        </listbox>
+                    </groupbox>
+                    <groupbox id="gbReportParam" mold="3d" open="false">
+                        <caption image="/images/ArrowsUpDown-16x16.png"  label="${c:l('app.report.groupheading.params')}"/>
+                        <grid>
+                            <rows id="rwsReportParam" style="background:none;border:0px;">
+                            </rows>
+                        </grid>
+                    </groupbox>
+                </hbox>
+                <hbox>
+                    <button id="btnGenerate" label="${c:l('app.report.button.genreport')}"/>
+                </hbox>
+            </vbox>
+            <iframe id="iFrameReport" width="800px" height="400px" style="border: 1px solid gray" />
+        </window>
+    </div>
+</zk>
+
+			

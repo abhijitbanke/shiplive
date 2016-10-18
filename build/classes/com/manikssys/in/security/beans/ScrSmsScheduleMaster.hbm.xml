@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class catalog="shiplive" name="com.manikssys.in.security.beans.ScrSmsScheduleMaster" table="scr_sms_schedule_master">
+    <id name="id" type="int">
+      <column length="11" name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="s1UserTime" type="timestamp">
+      <column length="19" name="s1_user_time" not-null="false"/>
+    </property>
+    <property name="s1BranchTime" type="timestamp">
+      <column length="19" name="s1_branch_time" not-null="false"/>
+    </property>
+    <property name="s1HoTime" type="timestamp">
+      <column length="19" name="s1_ho_time" not-null="false"/>
+    </property>
+
+     <property name="s2UserTime" type="timestamp">
+      <column length="19" name="s2_user_time" not-null="false"/>
+    </property>
+    <property name="s2BranchTime" type="timestamp">
+      <column length="19" name="s2_branch_time" not-null="false"/>
+    </property>
+    <property name="s2HoTime" type="timestamp">
+      <column length="19" name="s2_ho_time" not-null="false"/>
+    </property>
+    <property name="textMsg" type="string">
+      <column length="160" name="text_msg" not-null="false"/>
+    </property>
+
+  </class>
+</hibernate-mapping>

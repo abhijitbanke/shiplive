@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.manikssys.in.operational.beans.OprVesselPosition" table="opr_vessel_position">
+    <id name="vesselPosId" type="string">
+      <column length="40" name="vessel_pos_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <property name="eta" type="timestamp">
+      <column length="19" name="eta" not-null="false"/>
+    </property>
+    <property name="etb" type="timestamp">
+      <column length="19" name="etb" not-null="false"/>
+    </property>
+    <property name="ets" type="timestamp">
+      <column length="19" name="ets" not-null="false"/>
+    </property>
+    <property name="arrived" type="timestamp">
+      <column length="19" name="arrived" not-null="false"/>
+    </property>
+    <property name="berthed" type="timestamp">
+      <column length="19" name="berthed" not-null="false"/>
+    </property>
+    <property name="sailed" type="timestamp">
+      <column length="19" name="sailed" not-null="false"/>
+    </property>
+    <property name="agentName" type="string">
+      <column length="40" name="agent_name" not-null="false"/>
+    </property>
+    <property name="jetty" type="string">
+      <column length="60" name="jetty" not-null="false"/>
+    </property>
+    <property name="cargo" type="string">
+      <column length="60" name="cargo" not-null="false"/>
+    </property>
+    <property name="qty" type="string">
+      <column length="1000" name="qty" not-null="false"/>
+    </property>
+    <property name="ops" type="string">
+      <column length="30" name="ops"/>
+    </property>
+    <property name="vpStatus" type="string">
+      <column length="2" name="vp_status" not-null="true"/>
+    </property>
+    <property name="category" type="string">
+      <column length="1" name="category" not-null="false"/>
+    </property>
+    <property name="vpType" type="string">
+      <column length="1" name="vp_type" not-null="true"/>
+    </property>
+    <set cascade="save-update" inverse="true" lazy="false" name="remarkCollection">
+      <key>
+        <column name="vessel_pos_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.operational.beans.OprRemark"/>
+    </set>
+    <property name="entryStatus" type="string">
+      <column length="60" name="entry_status" not-null="true"/>
+    </property>
+    <property name="createdDate" type="timestamp">
+      <column length="19" name="created_date" not-null="true"/>
+    </property>
+    <property name="updatedDate" type="timestamp">
+      <column length="19" name="updated_date" not-null="false"/>
+    </property>
+    <many-to-one class="com.manikssys.in.operational.beans.OprPortMaster" fetch="select" name="npoc">
+      <column length="40" name="npoc"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column length="40" name="created_by" not-null="false"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.operational.beans.OprPortMaster" fetch="select" name="currentPort">
+      <column length="40" name="port_id" not-null="false"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.operational.beans.OprVesselMaster" fetch="select" name="vessel">
+      <column length="40" name="vessel_id"/>
+    </many-to-one>
+    <set cascade="all" lazy="false" name="oprCargoHdrCollection">
+      <key>
+        <column name="vessel_pos_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.operational.beans.OprCargoHdr"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,88 @@
+<?page  title="SMS Schedular" cacheable="false"
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    
+    <div width="950px" align="center" style="margin:auto;" >
+            
+        <window id="SMSSchedularWin" apply="com.manikssys.in.security.windows.SMSSchedularComposer" >
+            <separator height="20px" />
+
+            <vbox align="center" >
+
+
+                <h:fieldset style="padding:16px">
+                    <h:legend>Schedule</h:legend>
+                    <hbox>Vessel Position Type :
+                        <combobox id="cmbPosition" width="240px"/>
+                    </hbox>
+                    <hbox>
+                        <grid width="290px">
+                            <columns >
+                                <column align="center" label="User" width="100px"/>
+                                <column align="center" label="Session 1" width="80px"/>
+                                <column align="center" label="Session 2" width="80px"/>
+                            </columns>
+                            <rows >
+                                <row align="center">
+                                    <label value="Port User"/>
+                                    <timebox id="s1UserTime" width="70%"/>
+                                    <timebox id="s2UserTime" width="70%"/>
+                                </row>
+                                <row align="center">
+                                    <label value="Branch Manager"/>
+                                   <timebox id="s1BranchTime" width="70%"/>
+                                    <timebox id="s2BranchTime" width="70%"/>
+                                </row>
+                                <row align="center">
+                                    <label value="Head Office"/>
+                                    <timebox id="s1HoTime" width="70%"/>
+                                    <timebox id="s2HoTime" width="70%"/>
+                                </row>
+                            </rows>
+                        </grid>
+                        <vbox>
+                            <div>
+                            Message :
+                                <space width="50px"/> character remaining :
+                                <label id="msgLengthLbl" value="0"/>
+                            </div>
+                            <textbox id="messageText" height="60px" width="290px" multiline="true" maxlength="160" />
+                        </vbox>
+                    </hbox>
+                </h:fieldset>
+                <hbox>
+                    <h:fieldset style="padding:16px">
+                        <h:legend>Holiday</h:legend>
+                        <grid width="570px" align="center">
+                            <columns >
+                                <column align="center" label="MONDAY" width="80px"/>
+                                <column align="center" label="TUESDAY" width="80px"/>
+                                <column align="center" label="WEDNESDAY" width="80px"/>
+                                <column align="center" label="THURSDAY" width="80px"/>
+                                <column align="center" label="FRIDAY" width="80px"/>
+                                <column align="center" label="SATURDAY" width="80px"/>
+                                <column align="center" label="SUNDAY" width="80px"/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <checkbox id="monChkBox"/>
+                                    <checkbox id="tueChkBox"/>
+                                    <checkbox id="wedChkBox"/>
+                                    <checkbox id="thusChkBox"/>
+                                    <checkbox id="friChkBox"/>
+                                    <checkbox id="satChkBox"/>
+                                    <checkbox id="sunChkBox"/>
+                                </row>
+                            </rows>
+                        </grid>
+                    </h:fieldset>
+                </hbox>
+            </vbox>
+        </window>
+    </div>
+</zk>

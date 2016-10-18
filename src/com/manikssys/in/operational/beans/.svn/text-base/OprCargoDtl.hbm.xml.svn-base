@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.manikssys.in.operational.beans.OprCargoDtl" table="opr_cargo_dtl">
+    <id name="cargoDtlId" type="string">
+      <column length="40" name="cargo_dtl_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <property name="shipper" type="string">
+      <column length="60" name="shipper" not-null="false"/>
+    </property>
+    <property name="receiver" type="string">
+      <column length="60" name="receiver" not-null="false"/>
+    </property>
+    <property name="commodity" type="string">
+      <column length="60" name="commodity" not-null="false"/>
+    </property>
+    <property name="shipQty" type="big_decimal">
+      <column name="ship_qty" not-null="false" sql-type="decimal(10,3)"/>
+    </property>
+    <property name="blQty" type="big_decimal">
+      <column name="bl_qty" not-null="false" sql-type="decimal(10,3)"/>
+    </property>
+    <property name="blDate" type="timestamp">
+      <column length="60" name="bl_date" not-null="false"/>
+    </property>
+    <property name="grade" type="string">
+      <column length="60" name="grade" not-null="false"/>
+    </property>
+    <property name="manQty" type="big_decimal">
+      <column name="man_qty" not-null="false" sql-type="decimal(10,3)"/>
+    </property>
+    <property name="mechQty" type="big_decimal">
+      <column name="mech_qty" not-null="false" sql-type="decimal(10,3)"/>
+    </property>
+    <property name="ancQty" type="big_decimal">
+      <column name="anc_qty" not-null="false" sql-type="decimal(10,3)"/>
+    </property>
+    <property name="price" type="big_decimal">
+      <column name="price" not-null="false" sql-type="decimal(10,3)"/>
+    </property>
+    <property name="fob" type="int">
+      <column name="fob" not-null="false"/>
+    </property>
+    <property name="cha" type="string">
+      <column name="cha" not-null="false"/>
+    </property>
+    <property name="entryStatus" type="string">
+      <column length="60" name="entry_status" not-null="false"/>
+    </property>
+    <property name="createdDate" type="timestamp">
+      <column length="60" name="created_date" not-null="false"/>
+    </property>
+    <property name="updatedDate" type="timestamp">
+      <column length="60" name="updated_date" not-null="false"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column length="40" name="created_by" not-null="false"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by" not-null="false"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.operational.beans.OprCargoHdr" fetch="select" name="oprCargoHdr">
+      <column length="40" name="cargo_hdr_id"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

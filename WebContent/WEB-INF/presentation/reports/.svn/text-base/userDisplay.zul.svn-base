@@ -1,0 +1,28 @@
+<?page  title="MAC Master" cacheable="false"  
+language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window id="userDisplayWin"   apply="com.manikssys.in.reports.windows.UserDisplayComposer">
+        <div align="left">
+            <label value="Display User" style="font-weight:bold"/>
+        </div>
+        <panel title="${c:l('Display Users')}"  collapsible="false" style="font-weight:bold" framable="true" width="420px">
+            <panelchildren>
+                <tree id="userTree" zclass="z-dottree" height="450px"  >
+                    <treecols sizable="true">
+                        <treecol label="Branch Name" width="50%"/>
+                        <treecol label="User Status" />
+                    </treecols>
+
+                </tree>
+                <separator height="10px"/>
+            </panelchildren>
+
+        </panel>
+    </window>
+</zk>

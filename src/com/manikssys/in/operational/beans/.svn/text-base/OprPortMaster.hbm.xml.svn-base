@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 1, 2010 2:48:32 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.manikssys.in.operational.beans.OprPortMaster" table="opr_port_master">
+    <id name="portId" type="string">
+      <column length="40" name="port_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <property name="portCode" type="string">
+      <column length="20" name="port_code" not-null="true"/>
+    </property>
+    <property name="portName" type="string">
+      <column length="30" name="port_name" not-null="true"/>
+    </property>
+    <property name="status" type="string">
+      <column length="1" name="port_status"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column length="40" name="created_by" not-null="false"/>
+    </many-to-one>
+    <property name="createdDate" type="timestamp">
+      <column length="19" name="created_date"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.operational.beans.OprBranchMaster" fetch="select" lazy="false" name="branchId">
+      <column length="40" name="Branch_id"/>
+    </many-to-one>
+    <property name="updatedDate" type="timestamp">
+      <column length="19" name="updated_date"/>
+    </property>
+
+
+     <property name="leSeq" type="integer">
+      <column length="6" name="le_seq"/>
+    </property>
+    <property name="lwSeq" type="integer">
+      <column length="6" name="lw_seq"/>
+    </property>
+    <property name="deSeq" type="integer">
+      <column length="6" name="de_seq"/>
+    </property>
+    <property name="dwSeq" type="integer">
+      <column length="6" name="dw_seq"/>
+    </property>
+
+  </class>
+</hibernate-mapping>

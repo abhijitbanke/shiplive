@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="liquidCargo"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+
+    <window id="liquidCargoWin"   width="70%"  apply="com.manikssys.in.operational.windows.LiquidCargoComposer" >
+        <style   id="styleCss" src="/css/styles.css" />
+
+        <separator bar="false" height="5px"/>
+        <h:fieldset  >
+            <h:legend >Liquid Cargo </h:legend>
+           <h:table width="800px"  border="0" align="center" cellspacing="5" cellpadding="2" height="100%">
+                <h:tr align="right">
+                    <h:td >
+                        <h:table width="600px"  border="0" align="center" cellspacing="20" cellpadding="2" >
+                                <h:tr align="center">
+                                    <h:td align="right">${c:l('app.cargo.frmDate')}   </h:td>
+                                    <h:td align="left"><datebox id="frmDate"/>   <label value=" *" sclass="mandatory" /></h:td>
+                                    <h:td align="right">${c:l('app.cargo.toDate')}</h:td>
+                                    <h:td align="left"><datebox id="toDate"/>   <label value=" *" sclass="mandatory" /></h:td>
+
+                                </h:tr>
+                            </h:table>
+                    </h:td>
+                </h:tr>
+
+                <h:tr>
+                    <h:td>
+                        <h:table width="800px" height="20px" border="0" align="center" cellspacing="3" cellpadding="2" >
+                            <h:tr>
+				    <h:td align="right" > ${c:l('app.cargo.igm.no')}: </h:td>
+				    <h:td align="left" >
+					<textbox   id="txtIGMNo"   type="text" class="input" />			
+
+				    </h:td>
+				    <h:td align="right" > ${c:l('app.cargo.egm.no')}: </h:td>
+				    <h:td align="left" >
+					<textbox id="txtEGMNo" class="input"/>
+				    </h:td>
+		            </h:tr>	
+                            <h:tr>
+                                 <h:td align="right" >${c:l('app.dryCargo.loadingPort')}</h:td>
+                                <h:td align="left" >
+                                    <combobox id="loadingPort"  width="115px"/>
+                                    <label value=" *" sclass="mandatory" />
+                                </h:td>
+				<h:td align="right" > ${c:l('app.dryCargo.dischargePort')}</h:td>
+					<h:td align="left" >
+					    <combobox id="dischargePort" width="115px"/>
+
+                                </h:td>
+
+                            </h:tr>
+
+                            <h:tr>
+
+                                <h:td align="right" > ${c:l('app.dryCargo.vessel')}</h:td>
+                                <h:td align="left" >
+                                    <textbox  maxlength="20" id="vessel"   type="text" class="input" />
+                                    <label value=" *" sclass="mandatory" />
+                                </h:td>
+                                <h:td align="right" > ${c:l('app.dryCargo.owners')} </h:td>
+				    <h:td align="left" >
+					
+					<hbox>
+						    <textbox  maxlength="20" id="owners"   type="text" class="input" />
+						    <separator  /><combobox id="cmbOwnerCountry" width="80px"/>
+				    </hbox>
+
+                                    </h:td>
+                                
+                            </h:tr>
+
+
+                            <h:tr>
+                                <h:td align="right" > ${c:l('app.dryCargo.eta')} </h:td>
+                                <h:td align="left" >
+                                    <datebox id="eta" width="115px"/>
+
+                                </h:td>
+                                <h:td align="right" >${c:l('app.dryCargo.charterers')} </h:td>
+                                <h:td align="left" >
+                                    
+                                    <hbox>
+					    <textbox  maxlength="20" id="charterers"   type="text" class="input" />
+					    <separator  /><combobox id="cmbChartererCountry" width="80px"/>
+    				   </hbox>
+
+                                </h:td>
+                            </h:tr>
+
+                            <h:tr>
+                                <h:td align="right" >${c:l('app.dryCargo.etb')} </h:td>
+                                <h:td align="left" >
+                                    <datebox id="etb" width="115px"/>
+
+                                </h:td>
+                                <h:td align="right" > ${c:l('app.dryCargo.agent')} </h:td>
+                                <h:td align="left" >
+
+					    <hbox>
+						    <textbox  maxlength="20" id="agent"   type="text" class="input" />
+						    <separator  /><combobox id="cmbAgentCountry" width="80px"/>
+					    </hbox>
+
+                                </h:td>
+                            </h:tr>
+
+
+                            <h:tr>
+                                <h:td align="right" > ${c:l('app.liquidCargo.ets')}</h:td>
+                                <h:td align="left" >
+                                    <datebox id="ets" width="115px"/>
+                                </h:td>
+                                <h:td align="right" > ${c:l('app.liquidCargo.nextPortOfCall')} </h:td>
+                                <h:td align="left" >
+                                    <combobox id="nextPortOfCall"  width="115px"/>
+                                    
+                                </h:td>
+
+                            </h:tr>
+
+
+                        </h:table>
+
+                    </h:td>
+                </h:tr>
+
+
+                <h:tr>
+                    <h:td align="center">
+                        <grid id="cargoDetailsGrid" mold="paging" width="650px" pagingPosition="both" pageSize="6">
+                            <columns>
+                                <column style="width:15px" label="" align="center"/>
+                                <column width="100px" label="${c:l('app.dryCargo.shipper')}" align="center"/>
+                                <column width="100px" label="${c:l('app.dryCargo.receiver')}" align="center"/>
+                                <column width="100px" label="${c:l('app.dryCargo.commodity')}" align="center"/>
+                                <column width="100px" label="${c:l('app.liquidCargo.shipQty')}" align="center"/>
+                                <column width="100px" label="${c:l('app.liquidCargo.blQty')}" align="center"/>
+                                <column width="100px" label="${c:l('app.liquidCargo.blDate')}" align="center"/>
+
+                            </columns>
+
+                            <rows id="cargoDetailsRows">
+                               
+                            </rows>
+                        </grid>
+                    </h:td>
+
+                  
+
+                </h:tr>
+
+            </h:table>
+        </h:fieldset>
+    </window>
+</zk>

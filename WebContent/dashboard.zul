@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="dashboard"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <script type="text/JavaScript">
+            <![CDATA[ 
+		      
+		      function closeApp(logout){
+		        alert("HI am LOGOUT");
+			self.close();			
+
+		      }
+		    ]]>
+    </script>
+    <window id="dashboardWin"   width="100%" height="100%" style="margin:auto; border:1px solid #000000;" apply="com.manikssys.in.security.windows.DashboardComposer" >
+        <style   id="styleCss" src="/css/styles.css" />
+        <!-- <timer id="timerShow" /> -->
+        <borderlayout height="100%" >
+           
+            <north  maxsize="300" size="16%" splittable="false" sclass="header_top" collapsible="false"  border="none" height="130px" >
+                <borderlayout sclass="main_header"  >
+
+                    <west size="30%"  flex="false" maxsize="75" splittable="false" collapsible="false">
+                        <div>
+                            <div  width="100%" height="100%" align="center" >
+                                <image src="/images/AtlanticLogo.png" width="90%" height="90%" />
+                            </div>
+
+                        </div>
+                    </west>
+                    <center>
+                        <div style="margin-top:0px;" align="center">
+                            <hbox  width="100%" >
+                                <menubar  id="menubar" width="" />
+                                <vbox>
+                                    <label id="lblVersion" value="${c:l('label.application.version')}" style="font-size:12px;font-weight:bold;float:center;margin-left:5px;border:solid 0px;" />
+                                    <separator height="2px"/>
+                                    <checkbox id="chkEntrySeal" label="${c:l('label.opr.entryseal')}" style="font-family:Tahoma;font-size:14px;color:#09409b;" visible="false" />
+                                </vbox>
+                            </hbox>
+                            
+                        </div>
+                    </center>
+                    <east size="24%" border="none" flex="false" sclass="main_header">
+                        <hbox style="margin-top:3px;">
+                            <vbox>
+                                <label value=""  id="displayDate" />
+                            
+                                <div style="width:200px;float:left">
+                                    <vbox>
+                                        <label id="lblLoggedUser" style="font-size:10px;font-weight:bold;" />
+                                        <label id="lblLoggedUserBranch" value="Branch Head" style="white-space:nowrap;overflow:hidden;font-weight:bold;font-size:10px" />
+                                    </vbox>
+                                </div>
+                            </vbox>
+                            <div style="width:40px;float:left">
+                                <image src="/images/logout.png" style="float:center" width="31px" height="31px"  />
+                                <attribute name="onClick">
+				    Sessions.getCurrent().invalidate();
+				    Executions.sendRedirect("index.jsp");
+                                </attribute>
+                            </div>
+                            
+                            
+                            
+                        </hbox>
+                    </east>
+
+                    <south size="48%" border="none" flex="false" >
+                        <vbox  width="100%" height="100%">
+                            
+                            <hbox width="100%" sclass="nav_bar">
+                                <space width="10px" />
+                                <label id="lbScreenPath" value="${c:l('label.common.screenPath')}" style="font-size:11px;font-weight:bold"/>
+                                <space width="50px" />
+                                <div style="float:right;width:550px;">
+                                    <label  id="gloablmessage" style="float:right;" />
+                                </div>
+                            </hbox>
+                            
+                            <div id="toolbarDiv" width="100%" sclass="nav_toolbar" >
+				<!-- <div style="float:right;margin-right:10px;">
+					<toolbarbutton id="tbbEntryFlag" image="/images/sent.png"  tooltiptext="${c:l('label.button.seal')}" />
+				</div> -->
+                            </div>
+                            
+                        </vbox>
+                    </south>
+                </borderlayout>
+            </north>
+            
+            <center border="1"  >
+                <div  width="100%" style="overflow:auto;height:100%; "  align="center">
+                    <include id="includePage" />
+                </div>
+                
+            </center>
+            <south border="0" size="30px" style="background:white"  maxsize="100"  flex="false">
+                <borderlayout sclass="bottom_bar" >
+                    <west  sclass="bottom_bar" flex="false" maxsize="250" border="0" >
+                        <div sclass="main_footer">
+                           
+                            <label value="" style="color:#5d5d5d" id="copyRight" />
+                           
+                        </div>
+                    </west>
+                    <east size="50%" border="none"  sclass="bottom_bar" flex="false">
+                        <div sclass="main_footer">
+                            <label value="" style="color:#5d5d5d"  id="displayFooter"/>
+                            
+                            <!--<label value="" style="color:#5d5d5d"  id="displayDate" />-->
+                        </div>
+                    </east>
+                </borderlayout>
+            </south>
+        </borderlayout>
+    </window>
+</zk>

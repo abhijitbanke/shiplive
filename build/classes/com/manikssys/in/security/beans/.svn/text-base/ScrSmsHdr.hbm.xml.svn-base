@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class catalog="shiplive" name="com.manikssys.in.security.beans.ScrSmsHdr" table="scr_sms_hdr">
+    <id name="id" type="int">
+      <column length="11" name="id"/>
+    </id>
+    <property name="SMsg" type="string">
+      <column length="140" name="s_msg"/>
+    </property>
+    <property name="STime" type="timestamp">
+      <column length="19" name="s_time"/>
+    </property>
+    <property name="SStatus" type="int">
+      <column length="1" name="s_status"/>
+    </property>
+  </class>
+</hibernate-mapping>

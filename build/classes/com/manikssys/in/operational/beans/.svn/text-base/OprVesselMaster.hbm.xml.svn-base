@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.manikssys.in.operational.beans.OprVesselMaster" table="opr_vessel_master">
+    <id name="vesselId" type="string">
+      <column length="40" name="vessel_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <property name="vesselCode" type="string">
+      <column length="40" name="vessel_code" not-null="true"/>
+    </property>
+    <property name="vesselName" type="string">
+      <column length="40" name="vessel_name" not-null="true"/>
+    </property>
+    <property name="owner" type="string">
+      <column length="60" name="owner" not-null="false"/>
+    </property>
+    <property name="entryStatus" type="string">
+      <column length="60" name="entry_status" not-null="true"/>
+    </property>
+    <property name="createdDate" type="timestamp">
+      <column length="60" name="created_date" not-null="true"/>
+    </property>
+    <property name="updatedDate" type="timestamp">
+      <column length="60" name="updated_date" not-null="false"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column length="40" name="created_by" not-null="false"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.operational.beans.OprCountryMaster" fetch="select" name="ownerCountry">
+      <column length="40" name="owner_country" not-null="false"/>
+    </many-to-one>
+    <set cascade="all" name="oprVesselPositionCollection">
+      <key>
+        <column name="vessel_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.operational.beans.OprVesselPosition"/>
+    </set>
+  </class>
+</hibernate-mapping>

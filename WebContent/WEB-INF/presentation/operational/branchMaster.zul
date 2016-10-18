@@ -1,0 +1,134 @@
+<?page id="branchMaster" title=" New ZUL Title" cacheable="false"
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    
+     <div width="950px" align="center" style="margin:auto;" >
+        <window id="branchMasterWin" apply="com.manikssys.in.operational.windows.BranchMasterComposer" >
+          <separator height="10px"/>
+          
+          <grid width="100" >
+              <rows >
+               <row width="100" style="background:none;">
+                   <label value="${c:l('label.branch.branchcode')}"/>
+                   <textbox id="cBranchCode" width="200px" />
+                   <label value="${c:l('label.branch.name')}"/>
+                   <textbox id="cBranchName" width="200px" />
+                 </row>
+               <row style="background:none;">
+                  <label value="${c:l('label.branch.controldept')}"/>
+                   <combobox id="cHeadBranch" width="182px" readonly="true">
+			
+                     </combobox>
+                 </row>
+                 
+              </rows>
+          </grid>
+          
+          <separator height="20px"/>
+          <separator height="20px"/>
+          <h:table>
+              <h:tr>
+                  <h:td align="left">
+                     <label value="${c:l('label.branch.head')}" style="font-family: 'Helvetica'; font-size:17px;font-weight:bold;color: black;"/>
+                     </h:td>
+                     <space/><space/><space/><space/><space/> <space/><space/><space/><space/><space/> <space/><space/><space/><space/><space/> <space/><space/><space/><space/><space/> <space/><space/><space/><space/><space/> <space/><space/><space/><space/><space/> <space/><space/><space/><space/><space/>
+                     <h:td align="right">
+                         <label value="${c:l('label.branch.details')}" style="font-family: 'Helvetica';font-weight:bold;font-size:17px; color: black;" />
+                     </h:td>
+                  </h:tr>
+                         
+          </h:table>
+         
+          
+               
+          <hbox align="center">
+              <space/><space width="40"/>
+              <grid align="center">
+                  
+                  <rows>
+                      
+                     
+                      <row>
+			<label value="${c:l('label.branch.branchcode')}"/>
+			<textbox id="mBranchCode" width="200px"/>
+		    </row>
+
+		    <row>
+			<label value="${c:l('label.branch.name')}"/>
+			<textbox id="mBranchName" width="200px"/>
+                      </row>
+                      <row>
+                          <label value="${c:l('label.branch.address')}"/>
+                          <textbox id="mBranchAdd1" width="200px"/>
+                      </row>
+                      <row>
+                         <space/>
+                          <textbox id="mBranchAdd2" width="200px"/>
+                      </row>
+                      <row>
+                         <space/>
+                          <textbox id="mBranchAdd3" width="200px"/>
+                      </row>
+                      
+                       <row>
+                          <label value="${c:l('label.branch.phone')}"/>
+                          <textbox id="mBranchTelephone" width="200px"/>
+                      </row>
+                      <row>
+                          <label value="${c:l('label.branch.fax')}"/>
+                          <textbox id="mBranchFax" width="200px"/>
+                      </row>
+                      <row>
+                          <label value="${c:l('label.branch.telex')}"/>
+                          <textbox id="mBranchTelex" width="200px"/>
+                      </row>
+                      <row>
+                          <label value="${c:l('label.branch.email')}"/>
+                          <textbox id="mBranchEmail" width="200px"/>
+                      </row>
+                  </rows>
+              </grid>
+              <space width="200px"/>
+               <grid >
+                  <rows>
+                                         
+                      <row>
+                          <label value="${c:l('label.branch.address')}"/>
+                          <textbox id="cBranchAdd1" width="200px"/>
+                      </row>
+                      <row>
+                         <space/>
+                          <textbox id="cBranchAdd2" width="200px"/>
+                      </row>
+                      <row>
+                         <space/>
+                          <textbox id="cBranchAdd3" width="200px"/>
+                      </row>
+                       <row></row>
+                       <row>
+                          <label value="${c:l('label.branch.phone')}"/>
+                          <textbox id="cBranchTelephone" width="200px"/>
+                      </row>
+                      <row>
+                          <label value="${c:l('label.branch.fax')}"/>
+                          <textbox id="cBranchFax" width="200px"/>
+                      </row>
+                      <row>
+                          <label value="${c:l('label.branch.telex')}"/>
+                          <textbox id="cBranchTelex" width="200px"/>
+                      </row>
+                      <row>
+                          <label value="${c:l('label.branch.email')}"/>
+                          <textbox id="cBranchEmail" width="200px"/>
+                      </row>
+                  </rows>
+              </grid>
+             </hbox>
+        
+    </window>
+    </div>
+    </zk>

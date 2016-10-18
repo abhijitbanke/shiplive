@@ -1,0 +1,15 @@
+package com.manikssys.in.security.business;
+
+import com.manikssys.in.security.beans.ScrSmsHdr;
+import java.util.List;
+
+/**
+ * User: sandeep
+ * Date: Jun 25, 2010
+ */
+public interface ISMSSchedularBs {
+    public ScrSmsHdr saveSchedularHdr(ScrSmsHdr smsSchedulBean);
+    public List<ScrSmsHdr> getSMSHdr();
+
+    public List<ScrSmsHdr> getSMShdrList();
+}

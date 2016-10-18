@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 1, 2010 2:48:32 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.manikssys.in.operational.beans.OprEntryMaster" table="opr_entry_master">
+    <id name="entryId" type="string">
+      <column length="40" name="entry_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <many-to-one cascade="save-update" class="com.manikssys.in.operational.beans.OprPortMaster" fetch="join" name="oprPortMaster">
+      <column length="40" name="port_id" not-null="true"/>
+    </many-to-one>
+    <property name="entryCode" type="string">
+      <column length="20" name="entry_code" not-null="true"/>
+    </property>
+    <property name="entryType" type="string">
+      <column length="10" name="entry_type" not-null="true"/>
+    </property>
+    <property name="status" type="string">
+      <column length="10" name="entry_status"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column length="40" name="created_by" not-null="false"/>
+    </many-to-one>
+    <property name="createdDate" type="timestamp">
+      <column length="19" name="created_date"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by"/>
+    </many-to-one>
+    <property name="updatedDate" type="timestamp">
+      <column length="19" name="updated_date"/>
+    </property>
+  </class>
+</hibernate-mapping>

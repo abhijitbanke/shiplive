@@ -1,0 +1,70 @@
+<?page  title="Port Master" cacheable="false"  
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    
+    <div width="950px" align="center" style="margin:auto;" >
+        <window id="portMasterWin" apply="com.manikssys.in.operational.windows.PortMasterComposer" >
+
+            <separator height="10px"/>
+
+            <h:fieldset style="border:none" >
+
+                <h:table width="800px" height="20px" border="0" align="center" cellspacing="3" cellpadding="2" >
+
+                    <h:tr>
+                        <h:td align="right" > ${c:l('label.opr.portcode')} </h:td>
+                        <h:td align="left" >
+                            <textbox  maxlength="5" id="portCode"   type="text" class="input" />
+                            <label value=" *" sclass="mandatory" />
+                        </h:td>
+                    </h:tr>
+                    <h:tr>
+                        <h:td align="right"  > ${c:l('label.opr.portname')}  </h:td>
+                        <h:td align="left" >
+                            <textbox  maxlength="20" id="portName"   type="text" class="input" onChanging="portNameLbl.value = event.value"/>
+                            <label value=" *" sclass="mandatory" /><label id="portNameLbl" visible="false"/>
+                        </h:td>
+                    </h:tr>
+
+                    <h:tr>
+                        <h:td align="right"  > ${c:l('label.opr.branch')}  </h:td>
+                        <h:td align="left" >
+                            <listbox id="branch" mold="select"	rows="1" width="140px" tabindex="14" maxlength="40">
+                                <listitem label="Select"/>
+                            </listbox>
+                            <label value=" *" sclass="mandatory" />
+                        </h:td>
+                    </h:tr>
+
+                </h:table>
+
+                <separator height="10px"/>
+                
+                <h:table  border="0" align="center" cellspacing="5" cellpadding="2" style="border:0px solid gray">
+
+                    <h:tr>
+                        <h:td align="center">
+                            <grid id="portMasterGrid" mold="paging" width="700px" pagingPosition="both" pageSize="10">
+                                <columns>
+                                    <column style="width:100px" label="${c:l('label.opr.srno')}" align="center"/>
+                                    <column width="300px" label="${c:l('label.opr.portcode')}" align="center"/>
+                                    <column width="300px" label="${c:l('label.opr.portname')}" align="center"/>
+                                </columns>
+
+                                <rows id="portMasterRows">
+                                  
+                                </rows>
+                            </grid>
+                        </h:td>
+                    </h:tr>
+                </h:table>
+            </h:fieldset>
+
+        </window>
+    </div>
+</zk>

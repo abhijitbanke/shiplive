@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="userProfileWin" apply="com.manikssys.in.security.windows.UserProfileComposer" >
+        <div align="left">
+            <label value="Create New Profile" style="font-weight:bold"/>
+        </div>
+        <panel title="${c:l('label.user.profile')} ${c:l('label.user.access')}"  collapsible="false" style="font-weight:bold" framable="true" width="720px">
+            <panelchildren>
+                <listbox id="profile" mold="select"	rows="1" width="150px">
+                    <listitem label="Select Profile" />
+                </listbox>
+                <label value="${c:l('label.profile.name')}:"/>
+                <textbox id="profileName" value="" width="" />
+                <label value="${c:l('label.profile.code')}:"/>
+                <textbox id="profileCode" value="" width=""/>	
+                <separator height="10px"/>
+                <tree id="profileTree" zclass="z-dottree" height="450px">
+                </tree>
+                <separator height="10px"/>
+                <!-- <hbox align="right">
+                    <button id="submit"  label="${c:l('button.profile.save')}" />
+                    <button id="delete"  label="${c:l('button.profile.delete')}" />
+                    <button id="clear"  label="${c:l('button.profile.clear')}" />
+                    <vbox id="statusBar" style="font-weight:bold;"/>
+                </hbox> -->
+            </panelchildren>
+        </panel>
+    </window>
+
+</zk>

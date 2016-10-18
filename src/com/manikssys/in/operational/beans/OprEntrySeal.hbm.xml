@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.manikssys.in.operational.beans.OprEntrySeal" table="opr_entry_seal">
+    <composite-id class="com.manikssys.in.operational.beans.OprEntrySealPK" name="id">
+      <key-property column="branch_id" name="branchId"/>
+      <key-property column="created_date" name="createdDate"/>
+    </composite-id>
+    <property column="version_id" name="versionId" type="integer"/>
+    <property name="status" type="string">
+      <column length="1" name="seal_status"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column name="created_by" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by"/>
+    </many-to-one>
+    <!-- <many-to-one name="oprBranchMasterByBranchId" fetch="select" class="com.manikssys.in.operational.beans.OprBranchMaster">
+            <column name="branch_id" not-null="true"/>
+        </many-to-one> -->
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,247 @@
+/* 
+Document   : payroll
+Created on : 19 Aug, 2009, 2:45:32 PM
+Author     : truptin
+Description:
+Purpose of the stylesheet follows.
+*/
+
+/* 
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+.win{
+
+    border:2px solid gray;
+    margin:auto auto;
+    margin-top:3px;
+    background:#f1f2f2;
+    font-size:11px;
+}
+.z-window-embedded-tl {
+    background:gray none repeat scroll 0 0;
+    padding-left:6px;
+}
+.z-window-modal-header, .z-window-popup-header, .z-window-highlighted-header, .z-window-overlapped-header, .z-window-embedded-header {
+    background:gray none repeat scroll 0 0;
+    color:white;
+    font-family: sans-serif, Arial, Helvetica, Verdana;
+    font-size:11px;
+    font-weight:bold;
+    overflow:hidden;
+    padding:5px 0 4px;
+}
+.z-window-embedded-tr {
+    background:gray none repeat scroll 0 0;
+    padding-right:6px;
+}
+.fielidset{
+    border:1px solid gray;
+    margin:7px;
+    padding:4px;
+}
+.lagent{
+    font-size:12px;
+    font-weight:bold;
+}
+.z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox {
+
+    border:1px solid #7F9DB9;
+    font-family:sans-serif, Arial, Helvetica, Verdana;
+    font-size:11px;
+    font-weight:normal;
+}
+
+.texttd{
+    text-align:right;
+}
+z-window-modal-cl, .z-window-highlighted-cl, .z-window-overlapped-cl, .z-window-popup-cl {
+    background:none;
+    padding-left:0px;
+}
+.z-window-modal-tl, .z-window-highlighted-tl, .z-window-overlapped-tl, .z-window-popup-tl {
+    background:gray none repeat scroll 0 0;
+    padding-left:0px;
+}
+
+.z-window-modal-bm, .z-window-highlighted-bm, .z-window-overlapped-bm, .z-window-popup-bm {
+    font-size:0;
+    height:0px;
+    line-height:0;
+}
+.z-window-modal-tr, .z-window-highlighted-tr, .z-window-overlapped-tr, .z-window-popup-tr {
+    padding-right:0px;
+}
+
+z-window-modal-cr, .z-window-highlighted-cr, .z-window-overlapped-cr, .z-window-popup-cr {
+    background:none;
+    padding-right:0px;
+}
+.z-shadow .z-shadow-cl {
+    background:none;
+}
+.z-window-modal-bl, .z-window-highlighted-bl, .z-window-overlapped-bl, .z-window-popup-bl {
+    background:none;
+    padding-left:0px;
+}
+.z-shadow .z-shadow-cr {
+    background:none;
+}
+.z-window-modal-br, .z-window-highlighted-br, .z-window-overlapped-br, .z-window-popup-br {
+    background:none;
+    padding-right:0px;
+}
+.z-window-modal-tr, .z-window-highlighted-tr, .z-window-overlapped-tr, .z-window-popup-tr {
+    background:none;
+    padding-right:0px;
+}
+.z-shadow .z-shadow-bm {
+    background:none;
+}
+.z-window-modal-cnt, .z-window-highlighted-cnt, .z-window-modal-cnt-noborder, .z-window-highlighted-cnt-noborder, .z-window-overlapped-cnt-noborder {
+    background:#DCDCDC none repeat scroll 0 0;
+    margin:0;
+    overflow:hidden;
+    padding:4px;
+}
+
+
+
+
+.z-shadow .z-shadow-bl {
+    background:none;
+}
+z-shadow .z-shadow-br {
+    background:none;
+}
+.z-shadow .z-shadow-cm {
+    background:none;
+    float:left;
+    height:100%;
+}
+.z-shadow .z-shadow-br {
+    background:none;
+}
+.z-button .z-button-cm {
+background-color:gray;
+background-image:none;
+color:white;
+font-size:12px;
+border:1px solid blue;
+}
+.z-button .z-button-cr {
+background-image:none;
+background-position:-3px 0;
+background-repeat:no-repeat;
+padding:0;
+width:3px;
+}
+.z-button .z-button-bm {
+background-image:none;
+background-position:0 -3px;
+background-repeat:repeat-x;
+height:3px;
+}
+.z-button .z-button-cl {
+background-image:none;
+}
+.z-button .z-button-tm {
+background-image:none;
+background-position:0 0;
+background-repeat:repeat-x;
+}
+.z-button .z-button-tr {
+background-image:none;
+background-position:-3px 0;
+background-repeat:no-repeat;
+height:3px;
+margin:0;
+padding:0;
+width:3px;
+}
+.z-button .z-button-tl {
+background-image:none;
+background-position:0 0;
+background-repeat:no-repeat;
+height:3px;
+margin:0;
+padding:0;
+width:3px;
+}
+.z-button .z-button-bl {
+background-image:none;
+background-position:0 -3px;
+background-repeat:no-repeat;
+height:3px;
+margin:0;
+padding:0;
+width:3px;
+}
+.z-button .z-button-br {
+background-image:none;
+background-position:-3px -3px;
+background-repeat:no-repeat;
+height:3px;
+margin:0;
+padding:0;
+width:3px;
+}
+.common_column
+{
+    background: #919C9F;
+    font-size: 10px;
+    color:white;
+    height:25px;
+    text-align:center;
+    margin:0px;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+/* For Grid CSS */
+div.z-grid-header tr.z-columns, div.z-grid-header tr.z-auxhead {
+    background:#919C9F;
+    text-align:center;
+    background-repeat: repeat-x;
+    color:#ffffff;
+
+}
+div.z-grid-header, div.z-grid-header tr, div.z-grid-footer {
+    border:0 none;
+    overflow:hidden;
+    width:100%;
+    background-color:#d8d8d8;
+}
+div.z-grid-header th.z-column, div.z-grid-header th.z-auxheader {
+    overflow: hidden; border: 1px solid;
+    border-color: #D7D7D7 #D7D7D7 #D7D7D7 #D7D7D7;
+    white-space: nowrap; padding: 2px;
+    font-size: 10px; font-weight: normal;
+}
+div.z-footer-cnt, div.z-row-cnt, div.z-group-cnt, div.z-group-foot-cnt, div.z-column-cnt {
+    border: 0; margin: 0; padding: 0px;
+    font-size: 9px; font-weight: normal;
+}
+.z-label, .z-radio-cnt, .z-checkbox-cnt, .z-slider-pp, input.button, input.file, .z-loading, .z-errbox {
+    font-family:Verdana,Tahoma,Arial,Helvetica,sans-serif;
+    font-size:10px;
+    font-weight:normal;
+}
+tr.z-row td.z-row-inner {
+    background: #DCDCDC; border-top: none; border-left: 0px solid white;
+    border-right: 0px solid #CCC; border-bottom: 0px solid #DDD; padding:0px; margin:0px;
+}
+.z-column-over {
+    background:none;
+}
+.z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox {
+    margin:0px; padding:0px; _padding:-2px;
+    border: 1px solid gray;
+    font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;
+}

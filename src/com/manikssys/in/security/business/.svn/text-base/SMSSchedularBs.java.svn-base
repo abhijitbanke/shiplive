@@ -1,0 +1,30 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.manikssys.in.security.business;
+
+import com.manikssys.in.common.dao.security.SMSSchedularDAO;
+import com.manikssys.in.security.beans.ScrSmsHdr;
+import java.util.List;
+
+/**
+ *
+ * @author pc
+ */
+public class SMSSchedularBs implements ISMSSchedularBs{
+    SMSSchedularDAO smsSchedularDao=new SMSSchedularDAO();
+    public ScrSmsHdr saveSchedularHdr(ScrSmsHdr smsSchedulBean) {
+        return smsSchedularDao.saveScrSmsHdr(smsSchedulBean);
+    }
+
+    public List<ScrSmsHdr> getSMSHdr() {
+        return smsSchedularDao.getTodaysSMSHdr();
+    }
+
+    public List<ScrSmsHdr> getSMShdrList() {
+        return smsSchedularDao.getSMSHdrList();
+    }
+
+}

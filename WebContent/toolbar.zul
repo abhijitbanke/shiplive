@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+
+    <hbox  id="commonHBox" apply="com.manikssys.in.common.ToolbarComposer"  style="width:100%" >
+	<div style="float:left;margin-left:10px;">
+		                
+		<toolbarbutton id="First" image="/images/btn_First_inact.png"  	tooltiptext="${c:l('label.toolbar.first')}"/>
+		<toolbarbutton id="prev" image="/images/btn_prev_inact.png"  tooltiptext="${c:l('label.toolbar.previous')}"/>
+		<toolbarbutton id="next" image="/images/btn_next_inact.png" 	tooltiptext="${c:l('label.toolbar.next')}"/>
+		<toolbarbutton id="last" image="/images/btn_last_inact.png"  tooltiptext="${c:l('label.toolbar.last')}"/>
+
+        </div>
+	<div style="float:right;margin-right:10px;">
+
+		<toolbarbutton id="addrecord" image="/images/btn_addrecord_inact.png"  	tooltiptext="${c:l('label.toolbar.add')}"/>
+		<toolbarbutton id="delete_record" image="/images/btn_delete_record_inact.png"  tooltiptext="${c:l('label.toolbar.delete')}"/>
+		<toolbarbutton id="save" image="/images/btn_save_inact.png" tooltiptext="${c:l('label.toolbar.save')}"/>
+		<toolbarbutton id="import_data" image="/images/btn_import_data_inact.png"  tooltiptext="${c:l('label.toolbar.import')}"/>
+		<toolbarbutton id="cleanup" image="/images/btn_cleanup_inact.png" tooltiptext="${c:l('label.toolbar.clear')}"/>
+	</div>
+
+    <keylistener id="klRetrieve" ctrlKeys="^r" />
+    <keylistener id="klInsert" ctrlKeys="^i" />
+    <keylistener id="klDelete" ctrlKeys="^d" />
+    <keylistener id="klSave" ctrlKeys="^s" />
+    <keylistener id="klClear" ctrlKeys="^l" />
+
+    </hbox>

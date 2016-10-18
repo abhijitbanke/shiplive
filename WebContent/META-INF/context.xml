@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/shiplive">
+  <Resource auth="Container" 
+  defaultTransactionIsolation="READ_COMMITTED"
+   driverClassName="org.postgresql.Driver" 
+   maxActive="5" maxIdle="2" 
+   name="jdbc/shiplive" 
+   password="dbuser1" 
+   type="javax.sql.DataSource" 
+   url="jdbc:postgresql://127.0.0.1:5432/shiplive" 
+   username="dbuser1" 
+   validationQuery="Select 1"/>
+</Context>

@@ -1,0 +1,99 @@
+<?page id="SLBK0001" title="Ship Live Login" cacheable="false"  style="/css/sample_styles.css"
+        language="xul/html" zscriptLanguage="javascript" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
+
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+ <style  src="/css/stylesheet.css" />
+<h:style type="text/css">
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color:#d3e1ec;
+}
+
+</h:style>
+
+    <div>
+        <include src="macaddress.html"/>
+        <script type="text/JavaScript">
+            <![CDATA[ 
+		      
+		      function getMACAddresses(macId){
+		        macId.value = macs.getMacAddressesJSON();
+		 	// Fire an Artificial Event to Server
+		        if (document.createEvent) {
+		          var evt = document.createEvent('HTMLEvents');
+		          evt.initEvent( 'blur', false, false);
+		          macId.dispatchEvent(evt);
+		 
+		          var evt2 = document.createEvent('HTMLEvents');
+		          evt2.initEvent( 'change', false, false);
+		          macId.dispatchEvent(evt2);
+		        } else if (document.createEventObject) {
+		          macId.fireEvent('onblur');
+		          macId.fireEvent('onchange');
+		        }
+		      }
+		    ]]>
+        </script>
+        <window  id="loginIndex"  apply="com.manikssys.in.security.windows.LoginComposer" >
+		
+            <h:table width="1004" border="0" align="center" cellpadding="0" cellspacing="0">
+                <h:tr>
+                    <h:td><h:table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:80px;">
+                        <h:tr>
+                            <h:td height="80" align="left" valign="top"><h:img src="images/logo.jpg" width="550" height="61" /></h:td>
+                        </h:tr>
+                        <h:tr>
+                            <h:td><h:img src="images/top-divider.png" width="1004" height="21" /></h:td>
+                        </h:tr>
+                        <h:tr>
+                            <h:td><h:table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <h:tr>
+                                    <h:td width="456" valign="top"><h:img src="images/img_left.png" width="456" height="307" /></h:td>
+                                    <h:td valign="top" style="background:url(images/login_bg.png) top center no-repeat; height:318px;"><h:table width="70%" border="0" align="center" cellpadding="0" cellspacing="20">
+                                        <h:tr>
+                                            <h:td width="100" height="70"></h:td>
+                                            <h:td valign="bottom"></h:td>
+                                        </h:tr>
+                                        <h:tr>
+                                            <h:td align="right" class="normaltext"><label value="${c:l('app.index.username')}" /></h:td>
+                                            <h:td><textbox  id="uname" cols="15"  focus="true" width="120px" value="" /></h:td>
+                                        </h:tr>
+                                        <h:tr>
+                                            <h:td align="right" class="normaltext"><label value="${c:l('app.index.password')}" /></h:td>
+                                            <h:td><textbox id="password"   type="password"  width="120px" value="" />
+                    				<textbox id="macId" visible="false"  width="120px"  value=""/> </h:td>
+                                        </h:tr>
+                                        <h:tr>
+                                            <h:td></h:td>
+                                            <h:td ><button  label="${c:l('app.index.login')}"  id="submit" width="90px" height="20px" /></h:td>
+                                        </h:tr>
+                                        <h:tr>
+                                            
+                                            <h:td align="center" class="text" colspan="2"><label style="color:red" id="errmsg"   /></h:td>
+                                        </h:tr>
+                                    </h:table></h:td>
+                                </h:tr>
+                            </h:table></h:td>
+                        </h:tr>
+                        <h:tr>
+                            <h:td height="30" valign="bottom"><h:img src="images/dowwn-divider.png" width="1004" height="21" /></h:td>
+                        </h:tr>
+                        <h:tr>
+                            <h:td bgcolor="#CCCCCC"><space width="10px" /><h:span class="text">Powered by </h:span> <h:a href="http://www.usit.net.in" target="_blank" class="text">www.usit.net.in </h:a></h:td>
+                        </h:tr>
+                    </h:table></h:td>
+                </h:tr>
+            </h:table>
+        </window>
+    </div>
+</zk>

@@ -1,0 +1,50 @@
+<?page id="REP_SET" title=" New ZUL Title" cacheable="false"
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    <style>
+
+        .reportnameboldtext{ font-family:Arial, Helvetica, sans-serif; font-size:19px; color:#0d2b83; font-weight:bold;}
+    </style>
+
+    <div height="100%" width="100%" align="center" style="margin:auto;" >
+        <window  id="reportSettingWin"   apply="com.manikssys.in.reports.windows.ReportSettingComposer" >
+            <separator height="10px" />
+           Vessel Position Type :
+            <combobox id="cmbPosition" width="240px"/>
+                Port :
+            <textbox id="portTextbox" />
+            <div id="seqDiv" visible="false" >
+                <zscript><![CDATA[
+                            String imgPath = "/images/DualListButtons";
+                            ]]>
+                </zscript>
+                <h:table>
+                    <h:tr>
+                        <h:td>
+                            <listbox id="seqenceListBox"   width="380px" fixedLayout="true" oddRowSclass="false" style="border:1px solid  #86A4BE;min-height:100px; max-height : 500px;  overflow : Auto ;">
+                                <listhead >
+                                    <listheader>Code</listheader>
+                                    <listheader>Name</listheader>
+                                </listhead>
+                            </listbox>
+                        </h:td>
+                        <h:td>
+                            <vbox spacing="10px">
+                                <image style="cursor:pointer" id="topBtn" src="${imgPath}/upuparrow_g.png" />
+                                <image style="cursor:pointer" id="upBtn" src="${imgPath}/uparrow_g.png" />
+                                <image style="cursor:pointer" id="downBtn" src="${imgPath}/downarrow_g.png" />
+                                <image style="cursor:pointer" id="bottomBtn" src="${imgPath}/downdownarrow_g.png" />
+                            </vbox>
+                        </h:td>
+                    </h:tr>
+                </h:table>
+            </div>
+        </window>
+    </div>
+</zk>
+
+			

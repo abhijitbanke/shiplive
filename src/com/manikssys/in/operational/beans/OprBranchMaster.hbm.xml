@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 1, 2010 2:48:32 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.manikssys.in.operational.beans.OprBranchMaster" table="opr_branch_master">
+    <id name="branchId" type="string">
+      <column length="40" name="branch_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <property name="branchCode" type="string">
+      <column length="40" name="branch_code" not-null="true"/>
+    </property>
+    <property name="branchName" type="string">
+      <column length="90" name="branch_name" not-null="true" unique="true"/>
+    </property>
+    <property name="status" type="string">
+      <column length="1" name="branch_status"/>
+    </property>
+    <property name="branchRoot" type="string">
+      <column length="40" name="branch_root"/>
+    </property>
+    <property name="userAddr1" type="string">
+      <column length="100" name="user_addr1"/>
+    </property>
+    <property name="userAddr2" type="string">
+      <column length="100" name="user_addr2"/>
+    </property>
+    <property name="userAddr3" type="string">
+      <column length="100" name="user_addr3"/>
+    </property>
+    <property name="branchTelephone" type="string">
+      <column length="50" name="branch_telephone"/>
+    </property>
+    <property name="branchTelex" type="string">
+      <column length="50" name="branch_telex"/>
+    </property>
+    <property name="branchFax" type="string">
+      <column length="50" name="branch_fax"/>
+    </property>
+    <property name="branchEmail" type="string">
+      <column length="50" name="branch_email"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column length="40" name="created_by" not-null="false"/>
+    </many-to-one>
+    <property name="createdDate" type="timestamp">
+      <column length="19" name="created_date"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by"/>
+    </many-to-one>
+    <property name="updatedDate" type="timestamp">
+      <column length="19" name="updated_date"/>
+    </property>
+    <set inverse="true" name="scrUserMasters">
+      <key>
+        <column length="40" name="branch_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.security.beans.ScrUserMaster"/>
+    </set>
+  </class>
+</hibernate-mapping>

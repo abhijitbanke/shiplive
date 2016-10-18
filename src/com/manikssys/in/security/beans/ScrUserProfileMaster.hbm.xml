@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 23, 2010 5:14:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.manikssys.in.security.beans.ScrUserProfileMaster" table="scr_user_profile_master">
+    <id name="profileId" type="string">
+      <column length="40" name="profile_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <property name="profileCode" type="string">
+      <column length="20" name="profile_code"/>
+    </property>
+    <property name="profileName" type="string">
+      <column length="30" name="profile_name"/>
+    </property>
+    <property name="status" type="string">
+      <column length="1" name="profile_status"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column length="40" name="created_by" not-null="false"/>
+    </many-to-one>
+    <property name="createdDate" type="date">
+      <column length="10" name="created_date"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by"/>
+    </many-to-one>
+    <property name="updatedDate" type="date">
+      <column length="10" name="updated_date"/>
+    </property>
+    <set cascade="all" inverse="true" lazy="false" name="scrProfileMenuDetailses">
+      <key>
+        <column length="40" name="profile_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.security.beans.ScrProfileMenuDetails"/>
+    </set>
+    <set inverse="true" name="scrUserMasters">
+      <key>
+        <column length="40" name="profile_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.security.beans.ScrUserMaster"/>
+    </set>
+    <set cascade="all" inverse="true" lazy="false" name="scrMenuButtonProfileDetailses">
+      <key>
+        <column length="40" name="profile_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.security.beans.ScrMenuButtonProfileDetails"/>
+    </set>
+  </class>
+</hibernate-mapping>

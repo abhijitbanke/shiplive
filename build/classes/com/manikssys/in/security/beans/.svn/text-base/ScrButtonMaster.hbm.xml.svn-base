@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 23, 2010 5:14:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="shiplive" name="com.manikssys.in.security.beans.ScrButtonMaster" table="scr_button_master">
+    <id name="buttonId" type="string">
+      <column length="40" name="button_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <property name="buttonName" type="string">
+      <column length="30" name="button_name" not-null="true"/>
+    </property>
+    <property name="status" type="string">
+      <column length="1" name="user_status"/>
+    </property>
+    <property name="createdBy" type="string">
+      <column length="40" name="created_by"/>
+    </property>
+    <property name="createdDate" type="timestamp">
+      <column length="19" name="created_date"/>
+    </property>
+    <property name="updatedBy" type="string">
+      <column length="40" name="updated_by"/>
+    </property>
+    <property name="updatedDate" type="timestamp">
+      <column length="19" name="updated_date"/>
+    </property>
+    <set inverse="true" name="scrMenuButtonProfileDetailses">
+      <key>
+        <column length="40" name="button_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.security.beans.ScrMenuButtonProfileDetails"/>
+    </set>
+    <set inverse="true" name="scrMenuButtonDetailses">
+      <key>
+        <column length="40" name="button_id"/>
+      </key>
+      <one-to-many class="com.manikssys.in.security.beans.ScrMenuButtonDetails"/>
+    </set>
+  </class>
+</hibernate-mapping>

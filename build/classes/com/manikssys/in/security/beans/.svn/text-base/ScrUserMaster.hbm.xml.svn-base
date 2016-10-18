@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 23, 2010 5:14:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="shiplive" name="com.manikssys.in.security.beans.ScrUserMaster" table="scr_user_master">
+    <id name="userId" type="string">
+      <column length="40" name="user_id"/>
+      <generator class="uuid"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <many-to-one class="com.manikssys.in.operational.beans.OprBranchMaster" fetch="select" lazy="false" name="oprBranchMaster">
+      <column length="40" name="branch_id"/>
+    </many-to-one>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserProfileMaster" fetch="select" name="scrUserProfileMaster">
+      <column length="40" name="profile_id"/>
+    </many-to-one>
+    <property name="userName" type="string">
+      <column length="30" name="user_name" not-null="true" unique="true"/>
+    </property>
+    <property name="userPassword" type="string">
+      <column length="30" name="user_password"/>
+    </property>
+    <property name="userFullName" type="string">
+      <column length="40" name="user_full_name"/>
+    </property>
+    <property name="userTypeId" type="string">
+      <column length="1" name="user_type_id"/>
+    </property>
+    <property name="status" type="string">
+      <column length="1" name="user_status"/>
+    </property>
+    <property name="userEmail" type="string">
+      <column length="40" name="user_email"/>
+    </property>
+    <property name="createdBy" type="string">
+      <column length="40" name="created_by"/>
+    </property>
+    <property name="createdDate" type="timestamp">
+      <column length="19" name="created_date"/>
+    </property>
+    <property name="updatedBy" type="string">
+      <column length="40" name="updated_by"/>
+    </property>
+    <property name="updatedDate" type="timestamp">
+      <column length="19" name="updated_date"/>
+    </property>
+    <property name="userTelephone" type="string">
+      <column length="30" name="user_telephone"/>
+    </property>
+    <property name="userMobile" type="string">
+      <column length="15" name="user_mobile"/>
+    </property>
+  </class>
+</hibernate-mapping>

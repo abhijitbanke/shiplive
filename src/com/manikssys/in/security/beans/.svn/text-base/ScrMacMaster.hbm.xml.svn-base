@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 23, 2010 5:14:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="shiplive" name="com.manikssys.in.security.beans.ScrMacMaster" table="scr_mac_master">
+    <id name="macId" type="string">
+      <column length="40" name="mac_id"/>
+      <generator class="assigned"/>
+    </id>
+    <version column="version_id" name="versionId" type="integer"/>
+    <property name="machineName" type="string">
+      <column length="30" name="machine_name" not-null="true"/>
+    </property>
+    <property name="status" type="string">
+      <column length="1" name="mac_status"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="createdBy">
+      <column length="40" name="created_by" not-null="false"/>
+    </many-to-one>
+    <property name="createdDate" type="timestamp">
+      <column length="19" name="created_date"/>
+    </property>
+    <many-to-one class="com.manikssys.in.security.beans.ScrUserMaster" fetch="select" name="updatedBy">
+      <column length="40" name="updated_by"/>
+    </many-to-one>
+    <property name="updatedDate" type="timestamp">
+      <column length="19" name="updated_date"/>
+    </property>
+  </class>
+</hibernate-mapping>

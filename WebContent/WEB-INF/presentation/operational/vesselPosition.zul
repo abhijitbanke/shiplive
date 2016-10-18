@@ -1,0 +1,92 @@
+<?page  title="Vessel Position" cacheable="false"
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+<!--    <div width="100%" align="center" style="margin:auto;" >-->
+        <window id="vesselPositionWin" apply="com.manikssys.in.operational.windows.VesselPositionComposer" width="1400px" >
+
+            <separator height="10px"/>
+	
+            <h:fieldset>
+                <h:legend >${c:l('lbl.opr.vp.heading')}</h:legend>
+
+
+                <grid fixedLayout="true" width="100%" style="border:0px;float:left">
+                    <columns>
+                        <column  width="30%"/>
+                        <column  />
+                    </columns>
+                    <rows>
+                        <row style="background:none;border:0px;">
+                            <label value="${c:l('label.opr.vp.port')} : " style="float:right;" />
+                            <hbox>
+                                <combobox id="cmbPort"  class="input" width="200px" autodrop="true" >
+						     <!-- <comboitem label="Select" /> -->
+                                </combobox>
+                                <label value=" *" sclass="mandatory" />
+                                <hbox>
+							${c:l('app.cargo.frmDate')}
+                                    <datebox id="frmDate"/>
+							${c:l('app.cargo.toDate')}
+                                    <datebox id="toDate"/>
+                                </hbox>
+                            </hbox>
+                        </row>
+                        <row style="background:none;border:0px;">
+                            <label value="${c:l('label.opr.vp.vessel')} : " style="float:right;" />
+                            <hbox>
+                                <textbox  maxlength="20" id="vesselName" type="text" onChanging="vesselLabel.value = event.value" readonly="true"/>
+                                <label id="vesselLabel" visible="false"/>
+                            </hbox>
+                        </row>
+	
+                    </rows>
+                </grid>
+
+
+
+                <div style="border:0px solid green" >
+		
+                    <div width="100%"  height="100%"  style="float:left; border:0px solid gray; overflow:auto;" >
+                        <separator height="10px" />
+                
+                        <label value="${c:l('label.opr.vp.nonwaitingvessel.heading')} : " style="float:left;font-weight:bold;" />
+                
+                        <grid id="VesselPositionGrid" mold="paging" width="99%"  pageSize="10">
+                            <columns >
+                                <column width="20px" label="" align="center"/>
+                                <column width="120px" label="${c:l('label.opr.vp.vessel')} *" align="center"/>
+                                <column width="84px" label="${c:l('label.opr.vp.agent')} *" align="center"/>
+                                <column width="84px" label="${c:l('label.opr.vp.jetty')}" align="center"/>
+                                <column width="84px" label="${c:l('label.opr.vp.cargo')}" align="center"/>
+                                <column width="72px" label="${c:l('label.opr.vp.qty')}" align="center"/>
+                                <column width="100px" label="${c:l('label.opr.vp.eta/arrived')}" align="center"/>
+                                <column width="100px" label="${c:l('label.opr.vp.etb/berthed')}" align="center"/>
+                                <column width="100px" label="${c:l('label.opr.vp.ets/sailed')}" align="center"/>
+                                <column width="72px" label="${c:l('label.opr.vp.ops')}" align="center"/>
+                                <column width="72px" label="${c:l('label.opr.vp.npoc')}" align="center"/>
+                                <column width="72px" label="${c:l('label.opr.vp.catagory')}" align="center"/>
+                                <column width="72px" label="${c:l('label.opr.vp.status')} *" align="center"/>
+                                <column width="50px" label="${c:l('label.opr.vp.remark')}" align="center"/>
+                            </columns>
+
+                            <rows id="VesselPositionRows">
+
+                            </rows>
+                        </grid>
+                    </div>
+                
+                
+                    
+
+                </div>
+            </h:fieldset>
+            
+        </window>
+<!--    </div>-->
+</zk>

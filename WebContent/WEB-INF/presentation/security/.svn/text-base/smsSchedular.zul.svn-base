@@ -1,0 +1,39 @@
+<?page  title="SMS Schedular" cacheable="false"
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    
+    <div width="950px" align="center" style="margin:auto;" >
+        <window id="SMSSchedularWin"  apply="com.manikssys.in.security.windows.SMSSchedularComposer">
+
+<!--            <zscript><![CDATA[//@DECLARATION
+ public void setCharacterCount(){
+    System.out.println("hi...............");
+    String len = messageText.getText().length()+"";
+    characterCount.setValue(len);
+ }
+
+    ]]>
+            </zscript>-->
+            <separator height="10px"/>
+
+            <h:fieldset style="border:none" >
+                <grid fixedLayout="true" id="schedularGrid">
+                    <columns id="schedularGridColumns">
+                        <column label="Screen Name"/>
+                        <column label="Reporting Time1"/>
+                        <column label="Reporting Time2"/>
+                    </columns>
+                    <rows id="schedularGridRows">
+            
+                    </rows>
+                </grid>
+            </h:fieldset>
+
+        </window>
+    </div>
+</zk>

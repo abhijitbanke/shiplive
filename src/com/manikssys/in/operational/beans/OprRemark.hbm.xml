@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.manikssys.in.operational.beans.OprRemark" table="opr_remarks">
+    <id name="remarkId" type="integer">
+      <column length="10" name="remark_id"/>
+      <generator class="increment"/>
+    </id>
+    <property name="srNo" type="string">
+      <column name="sr_no" not-null="false"/>
+    </property>
+    <property name="remarkText" type="string">
+      <column name="remark_text" not-null="false"/>
+    </property>
+    <property name="remarkDate" type="timestamp">
+      <column length="60" name="remark_date" not-null="false"/>
+    </property>
+    <many-to-one class="com.manikssys.in.operational.beans.OprVesselPosition" fetch="select" name="vesselPosition">
+      <column length="60" name="vessel_pos_id"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

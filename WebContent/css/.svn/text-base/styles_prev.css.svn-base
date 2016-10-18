@@ -1,0 +1,18 @@
+.loginmain{width:100%; margin:auto}
+.loginTable{background-color: #f1b079; font-size:10px;}
+.text, .comboboxinp, .dateboxinp, .bandboxinp, .timeboxinp {
+    background:#FFFFFF;
+    border:1px solid #e6781c;
+    font-size:10px;
+}
+p, div, span, label, a, li, dt, dd, input, textarea, pre, body, button, input.button, input.file {
+    font-family:Verdana,Tahoma,Arial,serif;
+    font-size:10px;
+    font-weight:normal;
+}
+.error_msg{width:450px; text-align:center; margin:auto;}
+.z-window-modal-cnt-noborder, .z-window-highlighted-cnt-noborder, .z-window-embedded-cnt-noborder, .z-window-overlapped-cnt-noborder, .z-window-popup-cnt-noborder {
+    border:0 none;
+    font-size:11px;
+    overflow:hidden;
+}

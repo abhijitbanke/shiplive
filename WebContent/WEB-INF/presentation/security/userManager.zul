@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+
+
+    <window id="userManagerWin" apply="com.manikssys.in.security.windows.UserManagerComposer"> 
+
+        <panel title="${c:l('label.user.creation')}"  collapsible="false" style="font-weight:bold" framable="true" width="1100px">
+            <panelchildren>
+                <hbox spacing="0" >
+
+                    <listbox  width="350px" height="500px" id="userListbox" >
+                        <listhead>
+                            <listheader label="Sr.No." width="10%"/>
+                            <listheader label="Name" width="40%"/>
+                            <listheader label="Profile" align="left" width="30%" />
+                        </listhead>
+                    </listbox>
+
+
+                    <splitter id="s2" collapse="before"  draggable="true" open="true" />
+
+
+                    <grid  oddRowSclass="none" height="500px" width="700px" id="userForm" >
+                        <columns>
+                            <column label="" width="25%"  align="right" style="border:none"/>
+                            <column label="" width="30%"/>
+                            <column label="" align="right" width="20%"/>
+                            <column label="" align="left"  width="30%" />
+                        </columns>
+
+                        <rows>
+                            <row style="border:none;background:none;" height="30px">
+                                <label value="" width="" />
+                                <hbox>
+                                    <label value="*" style=" color:red;font-weight:bold;"/>
+                    			Fields are Mandatory.
+                                </hbox>
+                                <label  value=" " width="" />
+                                <label  value=" " width="" />
+                            </row>
+
+                            <row style="border:none;background:none;">
+                                <label value="${c:l('label.user.userName')}:" width="" />
+                                <hbox>
+                                    <textbox id="userName" value="" width="" tabindex="1" maxlength="30"  focus="true"/>
+                                    <label value="*" style=" color:red;font-weight:bold;"/>
+                                </hbox>
+                                <label value="${c:l('label.user.branch')}:" width="" />
+				<hbox>
+				    <listbox id="branch" mold="select"	rows="1" width="140px" tabindex="14" maxlength="40">
+					<listitem label="Select"/>
+				    </listbox>
+				    <label value="*" style=" color:red;font-weight:bold;"/>
+                                </hbox>
+                            </row>
+                            <row style="border:none;background:none;">
+                                <label  value="${c:l('label.user.password')}:" width="" />
+                                <hbox>
+                                    <textbox  type="password" id="password" value="" width="" tabindex="2" maxlength="30" />
+                                    <label value="*" style=" color:red;font-weight:bold;"/>
+                                </hbox>
+                                <label value="${c:l('label.user.profile')}:" width="" />
+                                <hbox>
+                                    <listbox id="profile" mold="select"	rows="1" width="140px" tabindex="14" maxlength="40">
+                                        <listitem label="Select"/>
+                                    </listbox>
+                                    <label value="*" style=" color:red;font-weight:bold;"/>
+                                </hbox>
+                            </row>
+                            <row style="border:none;background:none;">
+                                <label value="${c:l('usermanagement.changePassWin.label.confirmPass')}:" width=""  />
+                                <hbox>
+                                    <textbox  type="password" id="rePassword" value="" width="" tabindex="2" maxlength="30" />
+                                    <label value="*" style=" color:red;font-weight:bold;"/>
+                                </hbox>
+                                <label  value="${c:l('label.user.mobile')}:" width="" />
+                                <textbox id="mobile" value="" width="" tabindex="15" maxlength="10"/>
+                            </row>
+                            <row style="border:none;background:none;">
+                                <label value="${c:l('label.user.firstName')}:" width="" />
+                                <hbox>
+                                    <textbox id="firstName" value="" width="" tabindex="4" maxlength="30"/>
+                                    <label value="*" style=" color:red;font-weight:bold;"/>
+                                </hbox>
+                                <label  value="${c:l('label.user.telephone')}" width="" />
+                                <textbox id="telephone" value="" width="" tabindex="16" maxlength="30"/>
+                            </row>
+                            <row style="border:none;background:none;">
+                                <label value="${c:l('label.user.lastName')}:" width="" />
+				<hbox>
+				    <textbox id="lastName" value="" width="" tabindex="6" maxlength="30"/>
+				    <label value="*" style=" color:red;font-weight:bold;"/>
+                                </hbox>
+                                <label  value="${c:l('label.user.email')}:" width="" />
+                                <hbox>
+                                    <textbox id="email" value="" width="" tabindex="17" maxlength="40"/>
+                                    <label value="*" style=" color:red;font-weight:bold;"/>
+                                </hbox>
+                            </row>
+                            
+                            
+			
+                            <row  visible="false" style="border:none;background:none;" height="100px" valign="bottom">
+                                <separator/>
+                                <hbox>
+                                    <button  label="${c:l('button.user.clear')}" id="clear" tabindex="26"/>
+                                    <button  label="${c:l('button.user.edit')}" id="edit" tabindex="27"/>
+                                    <button  label="${c:l('button.user.save')}" id="save"/>
+                                    <button  label="${c:l('button.user.delete')}" id="delete" tabindex="28"/>
+                                    
+                                </hbox>
+
+
+                                <vbox visible="false" id="statusBar" style="font-weight:bold; color:gray"/>
+                            </row>
+			<row style="border:none;background:none;">
+				<button  label="${c:l('button.user.restore')}" id="restore"/>
+			</row>
+                        </rows>
+                    </grid>
+                </hbox>
+            </panelchildren>
+        </panel>
+	<!-- </groupbox>  -->
+
+    </window>
+
+
+
+</zk>

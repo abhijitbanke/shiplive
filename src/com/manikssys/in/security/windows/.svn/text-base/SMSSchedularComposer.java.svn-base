@@ -1,0 +1,230 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.manikssys.in.security.windows;
+
+import com.manikssys.in.common.CommonOperation;
+import com.manikssys.in.common.Constants;
+import com.manikssys.in.common.ICommonWindowInterface;
+import com.manikssys.in.security.beans.ScrSmsHdr;
+import com.manikssys.in.security.beans.ScrUserMaster;
+import com.manikssys.in.security.business.ISMSSchedularBs;
+import com.manikssys.in.security.business.SMSSchedularBs;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.apache.log4j.Logger;
+import org.zkoss.zk.ui.Executions;
+import org.zkoss.zul.*;
+
+/**
+ *
+ * @author pc
+ */
+public class SMSSchedularComposer extends GenericForwardComposer implements ICommonWindowInterface {
+
+    private Checkbox monChkBox, tueChkBox, wedChkBox, thusChkBox, friChkBox, satChkBox, sunChkBox;
+    private Timebox monTime, tueTime, wedTime, thusTime, friTime, satTime, sunTime;
+    private Label characterCount;
+    private Textbox messageText;
+    private Window SMSSchedularWin;
+    private static Logger log;
+    private ScrUserMaster loggedUser;
+
+    public void onCreate$SMSSchedularWin() {
+        System.out.println(".............onCreate$SMSSchedularWin.............");
+           Executions.getCurrent().getDesktop().setAttribute("currentWindow", this);
+           log = Logger.getLogger(MacMasterComposer.class);
+           loggedUser = (ScrUserMaster) sessionScope.get("user");
+
+//            setValuesToScreen();
+    } 
+
+    public void clearScreeen() {
+        monChkBox.setChecked(false);
+        tueChkBox.setChecked(false);
+        wedChkBox.setChecked(false);
+        thusChkBox.setChecked(false);
+        friChkBox.setChecked(false);
+        satChkBox.setChecked(false);
+        sunChkBox.setChecked(false);
+        monTime.setValue(null);
+        tueTime.setValue(null);
+        wedTime.setValue(null);
+        thusTime.setValue(null);
+        friTime.setValue(null);
+        satTime.setValue(null);
+        sunTime.setValue(null);
+        messageText.setText("");       
+    }
+
+    public void saveRecord() throws Exception {
+        System.out.println("SAVE-----------------------");
+        List<ScrSmsHdr> hdrList = new ArrayList<ScrSmsHdr>();
+        for (int i = 1; i < 8; i++) {
+            ScrSmsHdr bean = new ScrSmsHdr();
+            bean.setId(i);
+            bean.setSMsg(messageText.getText());
+            setBeanValues(bean);
+            hdrList.add(bean);
+        }
+        ISMSSchedularBs smsBs = new SMSSchedularBs();
+        
+        for (ScrSmsHdr bean : hdrList) {
+            CommonOperation.beginTransaction();
+            bean = smsBs.saveSchedularHdr(bean);
+           boolean saveStatus = CommonOperation.commitTransaction("label.common.save");
+        }
+        
+    }
+
+    public void addRecord() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void closeScreen() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void retrieveRecord() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void deleteRecord() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void setControls() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void getFirstRecord() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void getLastRecord() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void getNextRecord() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void getPreviousRecord() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    private void setBeanValues(ScrSmsHdr bean) {
+        int val = bean.getId();
+        System.out.println("val >>>> "+val);
+        Date date = new Date();
+        switch (val) {
+            case 1:
+                date.setHours(monTime.getValue().getHours());
+                date.setMinutes(monTime.getValue().getMinutes());
+//                bean.setSTime(monTime.getValue());
+                System.out.println("monTime    >>>>> "+monTime.getValue().getTime());
+                bean.setSStatus(monChkBox.isChecked() ? Constants.ACTIVE_DAY_SMS : Constants.PASSIVE_DAY_SMS);
+                break;
+
+            case 2:
+                date.setHours(tueTime.getValue().getHours());
+                date.setMinutes(tueTime.getValue().getMinutes());
+//                bean.setSTime(tueTime.getValue());
+                bean.setSStatus(tueChkBox.isChecked() ? Constants.ACTIVE_DAY_SMS : Constants.PASSIVE_DAY_SMS);
+                break;
+
+            case 3:
+                date.setHours(wedTime.getValue().getHours());
+                date.setMinutes(wedTime.getValue().getMinutes());
+//                bean.setSTime(wedTime.getValue());
+                bean.setSStatus(wedChkBox.isChecked() ? Constants.ACTIVE_DAY_SMS : Constants.PASSIVE_DAY_SMS);
+                break;
+
+            case 4:
+                date.setHours(thusTime.getValue().getHours());
+                date.setMinutes(thusTime.getValue().getMinutes());
+//                bean.setSTime(thusTime.getValue());
+                bean.setSStatus(thusChkBox.isChecked() ? Constants.ACTIVE_DAY_SMS : Constants.PASSIVE_DAY_SMS);
+                break;
+
+            case 5:
+                date.setHours(friTime.getValue().getHours());
+                date.setMinutes(friTime.getValue().getMinutes());
+//                bean.setSTime(friTime.getValue());
+                 System.out.println("friTime    >>>>> "+friTime.getValue());
+                bean.setSStatus(friChkBox.isChecked() ? Constants.ACTIVE_DAY_SMS : Constants.PASSIVE_DAY_SMS);
+                break;
+
+            case 6:
+                date.setHours(satTime.getValue().getHours());
+                date.setMinutes(satTime.getValue().getMinutes());
+//                bean.setSTime(satTime.getValue());
+                
+                bean.setSStatus(satChkBox.isChecked() ? Constants.ACTIVE_DAY_SMS : Constants.PASSIVE_DAY_SMS);
+                break;
+
+            case 7:
+                date.setHours(sunTime.getValue().getHours());
+                date.setMinutes(sunTime.getValue().getMinutes());
+//                bean.setSTime(sunTime.getValue());
+                bean.setSStatus(sunChkBox.isChecked() ? Constants.ACTIVE_DAY_SMS : Constants.PASSIVE_DAY_SMS);
+                break;
+        }
+
+        System.out.println(val+ "  Time    >>>>> "+date);
+        bean.setSTime(date);
+    }
+
+    private void setValuesToScreen() {
+        ISMSSchedularBs smsBs = new SMSSchedularBs();
+
+        CommonOperation.beginTransaction();
+        List<ScrSmsHdr> list = smsBs.getSMShdrList();
+        CommonOperation.commitTransaction();
+        int id=1;
+        for(ScrSmsHdr hdrBean  : list){
+            switch(id){
+                case 1:
+                monTime.setValue(hdrBean.getSTime());
+                monChkBox.setChecked(hdrBean.getSStatus()== Constants.ACTIVE_DAY_SMS ? true : false);
+                break;
+
+            case 2:
+                tueTime.setValue(hdrBean.getSTime());
+                tueChkBox.setChecked(hdrBean.getSStatus()== Constants.ACTIVE_DAY_SMS ? true : false);
+                break;
+
+            case 3:
+                wedTime.setValue(hdrBean.getSTime());
+                wedChkBox.setChecked(hdrBean.getSStatus()== Constants.ACTIVE_DAY_SMS ? true : false);
+                break;
+
+            case 4:
+                thusTime.setValue(hdrBean.getSTime());
+                thusChkBox.setChecked(hdrBean.getSStatus()== Constants.ACTIVE_DAY_SMS ? true : false);
+                break;
+
+            case 5:
+                friTime.setValue(hdrBean.getSTime());
+                friChkBox.setChecked(hdrBean.getSStatus()== Constants.ACTIVE_DAY_SMS ? true : false);
+                break;
+
+            case 6:
+                satTime.setValue(hdrBean.getSTime());
+                satChkBox.setChecked(hdrBean.getSStatus()== Constants.ACTIVE_DAY_SMS ? true : false);
+                break;
+
+            case 7:
+                sunTime.setValue(hdrBean.getSTime());
+                sunChkBox.setChecked(hdrBean.getSStatus()== Constants.ACTIVE_DAY_SMS ? true : false);
+                messageText.setText(hdrBean.getSMsg());
+                break;
+            }
+            id++;
+        }
+
+    }
+}

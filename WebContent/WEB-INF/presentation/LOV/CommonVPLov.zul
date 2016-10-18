@@ -1,0 +1,52 @@
+<?page id="VP_COMM_LOV" title=" New ZUL Title" cacheable="false"
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+<window id="winLov" title="List of Vessel Position" border="normal"  onCreate="winLov.onLoad()" maximizable="false" sizable="true" closable="false" height="360px" width="600px" use="com.manikssys.in.common.VesselPositionLOVWin" >
+
+            <grid width="100%" mold="paging"  pageSize="10"  style="border:0px hidden #000000; overflow:auto">
+                <rows>
+                    <row>
+                        <label  value="Find what" />
+                        <textbox id="param" style="width:80px;text-transform:uppercase;"/>
+
+                        <button label="Find"  >
+                            <attribute name="onClick">
+                                               winLov.setGridValues();
+                            </attribute>
+                        </button>
+                    </row>
+                </rows>
+            </grid>
+            <div height="5%">
+            </div>
+            <radiogroup width="100%">
+                <grid id="pageid" height="240px"  align="center" style="border:0px hidden #000000;  overflow:auto" mold="paging" pageSize="8">
+
+                    <columns id="objCol" >
+
+
+                    </columns>
+                    <rows id="myRow">
+
+
+                    </rows>
+                </grid>
+            </radiogroup>
+            <div style="text-align:center; width:100%;">
+                <button label="OK"  >
+                    <attribute name="onClick">
+                        winLov.assignValue();
+                    </attribute>
+                </button>
+                <button label="CANCEL"  >
+                    <attribute name="onClick">
+                        winLov.cancelButtonClick();
+                    </attribute>
+                </button>
+            </div>
+    </window>
+</zk>

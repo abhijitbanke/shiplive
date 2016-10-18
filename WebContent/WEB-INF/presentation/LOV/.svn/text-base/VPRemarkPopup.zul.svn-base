@@ -1,0 +1,24 @@
+<?page id="COMM_LOV" title=" New ZUL Title" cacheable="false"
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+
+<window id="winRemark" title="Vessel Position Remark" border="normal"  contentStyle="overflow:auto" onCreate="winRemark.onLoad()" sizable="false" closable="true" height="500px" width="500px" use="com.manikssys.in.common.VPRemarkWin" >
+    <style   id="styleCss" src="/css/styles.css" />
+
+        <separator bar="false" height="5px"/>
+        <h:fieldset>
+            <h:legend >Remark History </h:legend>
+             <textbox id="remarkHistory" multiline="true" height="80px" width="500px"  readonly="true"/>
+        </h:fieldset>
+        <h:fieldset  >
+        <h:legend >Add Remark</h:legend>
+            <textbox id="remark" multiline="true" height="80px" width="500px" />
+        </h:fieldset>
+    </window>
+
+</zk>
