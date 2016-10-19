@@ -9,6 +9,7 @@ import com.manikssys.in.common.ComponentValidation;
 import com.manikssys.in.security.beans.ScrUserMaster;
 import com.manikssys.in.security.business.ILoginBs;
 import com.manikssys.in.security.business.LoginBs;
+
 import org.apache.log4j.Logger;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Sessions;
@@ -75,7 +76,7 @@ public class LoginComposer extends GenericForwardComposer {
 //                macAddresses = macAddresses == null ? "" : macAddresses;                //commented by abhijit
             
                 macAddresses = macAddresses == null ? "EXAMPLE" : macAddresses;       //Created by Abhijit
-            
+                JdbcTransactionFactory
 
             String errorMsg = "";
             if (macAddresses.length() > 1) { // Even if it contains no MAC id it returns ';' character so we check its length having more than 1

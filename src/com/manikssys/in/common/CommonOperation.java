@@ -10,6 +10,7 @@ package com.manikssys.in.common;
  * @author sandeep
  */
 
+import org.hibernate.HibernateException;
 import org.hibernate.StaleObjectStateException;
 import org.zkoss.util.resource.Labels;
 import org.zkoss.zk.ui.Executions;
@@ -146,7 +147,13 @@ public class CommonOperation {
 
     public static void beginTransaction() {
         //  This code commented temporary
-        HibernateUtil.currentSession().beginTransaction();
+    	
+        try {
+			HibernateUtil.currentSession().beginTransaction();
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         System.out.println("BEGIN TRANSACTION>>>>>>>>>>>>>>>>>>>>>>>");
     }
 
