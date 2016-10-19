@@ -39,11 +39,11 @@
 	<welcome-file-list>
 		<welcome-file>index.zul</welcome-file>
 	</welcome-file-list>
-	<!-- <resource-ref>
+	<resource-ref>
 	 	<description>postgreSQL Datasource example</description>
 	 	<res-ref-name>jdbc/shiplive</res-ref-name>
 	 	<res-type>javax.sql.DataSource</res-type>
 	 	<res-auth>Container</res-auth> 
-	</resource-ref> -->
+	</resource-ref>
 	
 </web-app>
