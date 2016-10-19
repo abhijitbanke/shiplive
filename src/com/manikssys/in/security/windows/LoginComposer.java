@@ -76,7 +76,7 @@ public class LoginComposer extends GenericForwardComposer {
 //                macAddresses = macAddresses == null ? "" : macAddresses;                //commented by abhijit
             
                 macAddresses = macAddresses == null ? "EXAMPLE" : macAddresses;       //Created by Abhijit
-                JdbcTransactionFactory
+                
 
             String errorMsg = "";
             if (macAddresses.length() > 1) { // Even if it contains no MAC id it returns ';' character so we check its length having more than 1
