@@ -10,7 +10,7 @@ import com.manikssys.in.security.beans.ScrMenuMaster;
 import com.manikssys.in.security.beans.ScrUserProfileMaster;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.zkoss.zkplus.hibernate.HibernateUtil;
+import com.manikssys.in.util.HibernateUtil;
 
 import java.util.ArrayList;
 /**

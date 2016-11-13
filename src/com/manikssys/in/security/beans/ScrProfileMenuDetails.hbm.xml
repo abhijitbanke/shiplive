@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 23, 2010 5:14:06 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-  <class name="com.manikssys.in.security.beans.ScrProfileMenuDetails" table="scr_profile_menu_details">
+  <class name="com.manikssys.in.security.beans.ScrProfileMenuDetails" schema="shipliveprod" table="scr_profile_menu_details">
     <id name="profileMenuDtlsId" type="string">
       <column length="40" name="profile_menu_dtls_id"/>
       <generator class="uuid"/>

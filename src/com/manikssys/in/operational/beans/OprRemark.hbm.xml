@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class lazy="false" name="com.manikssys.in.operational.beans.OprRemark" table="opr_remarks">
+  <class lazy="false" name="com.manikssys.in.operational.beans.OprRemark" schema="shipliveprod" table="opr_remarks">
     <id name="remarkId" type="integer">
       <column length="10" name="remark_id"/>
       <generator class="increment"/>

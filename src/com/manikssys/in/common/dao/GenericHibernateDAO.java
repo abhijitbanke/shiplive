@@ -18,7 +18,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
-import org.zkoss.zkplus.hibernate.HibernateUtil;
+import com.manikssys.in.util.HibernateUtil;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

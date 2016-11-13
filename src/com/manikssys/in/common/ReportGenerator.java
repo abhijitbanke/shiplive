@@ -31,7 +31,7 @@ import org.hibernate.internal.SessionImpl;
 import org.zkoss.util.media.AMedia;
 import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zkplus.hibernate.HibernateUtil;
+import com.manikssys.in.util.HibernateUtil;
 
 /**
  * Author : Sandeep Natoo

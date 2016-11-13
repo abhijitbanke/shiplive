@@ -27,6 +27,7 @@ public class PasswordEncryption {
             e.printStackTrace();
         }
         byte raw[] = md.digest(); // get encrypted value
-        userObj.setUserPassword((new BASE64Encoder()).encode(raw)); // get the digested password value
+        String encodedPassword = (new BASE64Encoder()).encode(raw);
+        userObj.setUserPassword(encodedPassword); // get the digested password value
     }
 }

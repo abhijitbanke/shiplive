@@ -153,22 +153,24 @@ public class DashboardComposer extends GenericForwardComposer {
                 menu = (ScrMenuMaster) event.getOrigin().getTarget().getAttribute("menu");
                 lbScreenPath.setValue((String) event.getOrigin().getTarget().getAttribute("menuPath"));
                 dashboardWin.getDesktop().setAttribute("screen", menu.getMenuCode());
-
+                includePage.setSrc(menu.getMenuAction() == null ? "" : menu.getMenuAction());
+                // Set the Access Controls
+                if (menu.getMenuAction() != null) {
+                    CommonOperation.beginTransaction(); // Here we start the hibernate transaction
+                    ILoginBs loginBs = new LoginBs();
+                    toolBarComposer.setUserAccessState(loginBs.getAccessButtonList(menu.getMenuId(), userMaster.getScrUserProfileMaster().getProfileId()));
+                    CommonOperation.commitTransaction();
+                }
             } else {
                 //menu = (ScrMenuMaster) event.getOrigin().getTarget().getParent().getAttribute("menu");
                 //lbScreenPath.setValue((String) event.getOrigin().getTarget().getParent().getAttribute("menuPath"));
+            	includePage.setSrc("");
             }
-            includePage.setSrc("");
-            includePage.setSrc(menu.getMenuAction() == null ? "" : menu.getMenuAction());
+            
+           
 
 
-            // Set the Access Controls
-            if (menu.getMenuAction() != null) {
-                CommonOperation.beginTransaction(); // Here we start the hibernate transaction
-                ILoginBs loginBs = new LoginBs();
-                toolBarComposer.setUserAccessState(loginBs.getAccessButtonList(menu.getMenuId(), userMaster.getScrUserProfileMaster().getProfileId()));
-                CommonOperation.commitTransaction();
-            }
+          
 
         } catch (Exception e) {
             e.printStackTrace();

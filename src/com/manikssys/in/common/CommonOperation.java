@@ -10,23 +10,39 @@ package com.manikssys.in.common;
  * @author sandeep
  */
 
-import org.hibernate.HibernateException;
-import org.hibernate.StaleObjectStateException;
-import org.zkoss.util.resource.Labels;
-import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.Page;
-import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.Events;
-import org.zkoss.zkplus.hibernate.HibernateUtil;
-import org.zkoss.zul.*;
-
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.hibernate.HibernateException;
+import org.hibernate.StaleObjectStateException;
+import org.hibernate.Transaction;
+import org.zkoss.util.resource.Labels;
+import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.Page;
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.Events;
+import org.zkoss.zul.Checkbox;
+import org.zkoss.zul.Combobox;
+import org.zkoss.zul.Comboitem;
+import org.zkoss.zul.Detail;
+import org.zkoss.zul.Grid;
+import org.zkoss.zul.Label;
+import org.zkoss.zul.Row;
+import org.zkoss.zul.Window;
+
+import com.manikssys.in.util.HibernateUtil;
 
 
 public class CommonOperation {
@@ -145,16 +161,17 @@ public class CommonOperation {
     }
     // Method to call begin transaction for hibernate session
 
-    public static void beginTransaction() {
+    public static Transaction beginTransaction() {
         //  This code commented temporary
-    	
+    	Transaction tx = null;
         try {
-			HibernateUtil.currentSession().beginTransaction();
+			tx = HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
 		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         System.out.println("BEGIN TRANSACTION>>>>>>>>>>>>>>>>>>>>>>>");
+        return tx;
     }
 
     // method to commit or close the hibernate session
@@ -163,7 +180,7 @@ public class CommonOperation {
         boolean blnStatus = true;   // Default true
         /* This code commented temporary*/
         try {
-            HibernateUtil.currentSession().getTransaction().commit();
+        	HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
             if (key != null) { // If message needed
                 showDashboardMessage(Labels.getLabel(key), 'S');
             }
@@ -173,17 +190,17 @@ public class CommonOperation {
                 showDashboardMessage(Labels.getLabel("common.validation.versionidproblem"), 'F');
             }
             try {
-                if (HibernateUtil.currentSession().getTransaction().isActive()) {
+                if (HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().isActive()) {
                     System.out.println("Trying to rollback database transaction after exception:" + ex);
                     showDashboardMessage(Labels.getLabel("common.validation.errorwhileperform"), 'F');
-                    HibernateUtil.currentSession().getTransaction().rollback();
+                    HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
                 }
             } catch (Throwable rbEx) {
                 System.out.println("Could not rollback transaction after exception! Original Exception:\n" + rbEx);
             }
 
         } finally {
-            HibernateUtil.closeSession(); //always close it        
+        	HibernateUtil.getSessionFactory().getCurrentSession().close();
         }
         //System.out.println("COMMIT TRANSACTION>>>>>>>>>>>>>>>>>>>>>>>");
         return blnStatus;
